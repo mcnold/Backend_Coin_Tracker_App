@@ -14,6 +14,7 @@ const app = express();
 require('./config/db.connection'); 
 
 // Middleware
+app.use(express.json()); 
 
 // Routes 
 
