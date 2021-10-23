@@ -2,6 +2,7 @@
 const express = require('express');
 
 // Internal Modules 
+const routes = require('./routes'); 
 
 // PORT
 const PORT = process.env.PORT || 4000; 
@@ -13,15 +14,16 @@ const app = express();
 
 // Middleware
 
-
 // Routes 
 
 app.get('/', function(req, res){
     res.send('This is the landing page!')
 })
 
+app.use('/cryptos', routes.cryptos)
 
-// == Server Bind ==
+
+// Server / listening on PORT 
 app.listen(PORT, () => {
     console.log(`🎉🎊, http://localhost:${PORT}, 🎉🎊,`)
   })
