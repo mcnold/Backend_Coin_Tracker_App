@@ -21,6 +21,17 @@ const create = (req, res) => {
 }
 
 // Update
+const update = (req, res) => {
+    db.cryptos.findByIdAndUpdate(
+        req.params.id, 
+        req.body, 
+        {new: true}, 
+        (error, updatedCrypto) => {
+            if(error) return res.status(400).json({error: error.message}); 
+
+            return res.status(200).json(updatedCrypto); 
+        }); 
+}
 
 // Destroy
 const destroy = (req, res) => {
@@ -35,6 +46,7 @@ const destroy = (req, res) => {
 
 module.exports = {
     index,
-    create,  
+    create,
+    update,   
     destroy, 
 }
