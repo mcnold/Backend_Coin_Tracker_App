@@ -8,6 +8,7 @@ const ctrls = require('../controllers');
 
 router.get('/', ctrls.cryptos.index); 
 router.post('/', ctrls.cryptos.create); 
+router.delete('/:id', ctrls.cryptos.destroy);
 
 
 module.exports = router; 
