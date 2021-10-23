@@ -8,4 +8,6 @@ const ctrls = require('../controllers');
 
 router.get('/', ctrls.cryptos.index); 
 
+
+
 module.exports = router; 

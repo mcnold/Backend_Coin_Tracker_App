@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 4000;
 const app = express(); 
 
 // Database Connection 
+require('./config/db.connection'); 
 
 // Middleware
 
