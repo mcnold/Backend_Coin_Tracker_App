@@ -4,6 +4,9 @@ const express = require('express');
 // Internal Modules 
 const routes = require('./routes'); 
 
+// Cors
+const cors = require('cors')
+
 // PORT
 const PORT = process.env.PORT || 4000; 
 
@@ -12,6 +15,20 @@ const app = express();
 
 // Database Connection 
 require('./config/db.connection'); 
+
+// Middleware (Cors)
+const whitelist = ['http://localhost:3000', 'heroku frontend url here']
+const corsOptions = {
+  origin: (origin, callback) => {
+    if(whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions))
 
 // Middleware
 app.use(express.json()); 
