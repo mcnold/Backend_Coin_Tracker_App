@@ -1,5 +1,4 @@
 const mongoose = require('mongoose'); 
-const { cryptos } = require('../controllers');
 
 const cryptoSchema = new mongoose.Schema({
     coinName: {
