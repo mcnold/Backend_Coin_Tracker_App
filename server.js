@@ -23,7 +23,7 @@ const app = express();
 require('./config/db.connection'); 
 
 // Middleware (Cors)
-const whitelist = ['http://localhost:3000', 'heroku frontend url here']
+const whitelist = ['http://localhost:3000', 'https://front-mycointracker.herokuapp.com/']
 const corsOptions = {
   origin: (origin, callback) => {
     if(whitelist.indexOf(origin) !== -1 || !origin) {
